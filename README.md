@@ -57,7 +57,7 @@ git config --global alias.acom "!f() { git commit -am \"$*\"; }; f"
 ```
 ## commit -am & push
 ```sh
-git config --global alias.cpush "!f() { git commit -am \"$*\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
+git config --global alias.qush "!f() { git commit -am \"$*\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
 ```
 
 ## branch from dev (bfd), jump to dev
