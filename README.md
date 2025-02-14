@@ -19,7 +19,7 @@ git config --global alias.arefactor "!f() { git commit -m \"♻️ refactor: $*\
 git config --global alias.atest "!f() { git commit -m \"✅ test: $*\"; }; f"
 git config --global alias.achore "!f() { git commit -m \"🧹 chore: $*\"; }; f"
 
-git config --global alias.bout checkout -b
+git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 ```
 
