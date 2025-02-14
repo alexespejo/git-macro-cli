@@ -3,6 +3,7 @@
 # Git Macros
 
 ## commit, commit -am, checkout -b, push -u
+feat, fix, docs, styles, refactor, test, chore, wip
 ```sh
 git config --global alias.feat "!f() { git commit -m \"✨ feat: $*\"; }; f"
 git config --global alias.fix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
@@ -50,18 +51,21 @@ git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 
 ```
-## basic
+## basic commit macro
 ```sh
 git config --global alias.com "!f() { git commit -m \"$*\"; }; f"
 git config --global alias.acom "!f() { git commit -am \"$*\"; }; f"
 ```
+
 ## commit -am & push
+Quick Push
 ```sh
 git config --global alias.qush "!f() { git commit -am \"$*\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
 ```
 
-## branch from dev (bfd), jump to dev
-Require configuring for whatever your "develop" branch is called
+## 💰🌿💥, jump to dev
+
+_Require configuring for whatever your "develop" branch is called_
 ```sh
 git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git stash pop; }; f"
 git config --global alias.jd "checkout <develop-branch>"
