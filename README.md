@@ -1,9 +1,18 @@
 ---
 
 # Git Macros
+| Command | Resulting Commit Message |
+|---------|-------------------------|
+| `git feat "commit message"` | ✨ feat: commit message |
+| `git fix "commit message"` | 🐞 fix: commit message |
+| `git docs "commit message"` | 📚 docs: commit message |
+| `git style "commit message"` | 🎨 style: commit message |
+| `git refactor "commit message"` | ♻️ refactor: commit message |
+| `git test "commit message"` | ✅ test: commit message |
+| `git chore "commit message"` | 🧹 chore: commit message |
+| `git wip "commit message"` | 🚧 wip: commit message |
 
 ## commit, commit -am, checkout -b, push -u
-feat, fix, docs, styles, refactor, test, chore, wip
 ```sh
 git config --global alias.feat "!f() { git commit -m \"✨ feat: $*\"; }; f"
 git config --global alias.fix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
