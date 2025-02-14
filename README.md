@@ -2,7 +2,7 @@
 
 # Git Macros
 
-## commit, checkout -b, push -u
+## commit, commit -am, checkout -b, push -u
 ```sh
 git config --global alias.feat "!f() { git commit -m \"✨ feat: $*\"; }; f"
 git config --global alias.fix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
