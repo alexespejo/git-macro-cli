@@ -25,6 +25,6 @@ git config --global alias.upush "!git push --set-upstream origin $(git rev-parse
 
 ## Need Configuring 
 ```sh
-git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git branch --set-upstream-to=origin/\"$1\" && git stash pop; }; f"
+git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git stash pop; }; f"
 git config --global alias.jd "checkout <develop-branch>"
 ```
