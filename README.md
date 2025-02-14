@@ -2,12 +2,6 @@
 
 # Git Macros
 
-## Commits
-```sh
-  git commit -m "commit msg"
-  git commit -am "commit msg"
-```
-
 ```sh
 git config --global alias.feat "!f() { git commit -m \"✨ feat: $*\"; }; f"
 git config --global alias.fix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
