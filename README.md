@@ -50,7 +50,8 @@ git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 
 ```
-## Need Configuring 
+## branch from dev (bfd), jump to dev
+Require configuring for whatever your "develop" branch is called
 ```sh
 git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git stash pop; }; f"
 git config --global alias.jd "checkout <develop-branch>"
