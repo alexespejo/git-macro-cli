@@ -9,7 +9,6 @@ These Git aliases simplify common tasks. They save time by allowing shorthand co
 Run the following commands to set up the aliases:
 
 ```sh
-git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch develop && git switch -c \"$1\" && git branch --set-upstream-to=origin/\"$1\" && git stash pop; }; f"
 git config --global alias.feat "!f() { git commit -m \"✨ feat: $*\"; }; f"
 git config --global alias.fix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
 git config --global alias.docs "!f() { git commit -m \"📚 docs: $*\"; }; f"
