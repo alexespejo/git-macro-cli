@@ -62,12 +62,23 @@ git config --global alias.upush "!git push --set-upstream origin $(git rev-parse
 ```
 ## basic commit macro
 ```sh
+#Example
+git com "commit msg" # commit msg
+git acom "commit msg" # commit msg
+```
+
+
+```sh
 git config --global alias.com "!f() { git commit -m \"$*\"; }; f"
 git config --global alias.acom "!f() { git commit -am \"$*\"; }; f"
 ```
 
 ## commit -am & push
-Quick Push
+```sh
+# Example
+git qush "commit-and-push"
+```
+
 ```sh
 git config --global alias.qush "!f() { git commit -am \"$*\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
 ```
