@@ -26,7 +26,7 @@ git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 ```
 
-## No Emojis
+### No Emojis
 ```sh
 git config --global alias.feat "!f() { git commit -m \"feat: $*\"; }; f"
 git config --global alias.fix "!f() { git commit -m \"fix: $*\"; }; f"
