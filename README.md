@@ -50,6 +50,12 @@ git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 
 ```
+## basic
+```sh
+git config --global alias.com "!f() { git commit -m \"$*\"; }; f"
+git config --global alias.acom "!f() { git commit -am \"$*\"; }; f"
+```
+
 ## branch from dev (bfd), jump to dev
 Require configuring for whatever your "develop" branch is called
 ```sh
