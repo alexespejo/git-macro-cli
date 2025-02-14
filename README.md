@@ -10,15 +10,20 @@ Run the following commands to set up the aliases:
 
 ```sh
 git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch develop && git switch -c \"$1\" && git branch --set-upstream-to=origin/\"$1\" && git stash pop; }; f"
-git config --global alias.jd "checkout develop"
 git config --global alias.feat "!f() { git commit -m \"✨ feat: $*\"; }; f"
-git config --global alias.bug "!f() { git commit -m \"🐛 fix: $*\"; }; f"
+git config --global alias.fix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
 git config --global alias.docs "!f() { git commit -m \"📚 docs: $*\"; }; f"
 git config --global alias.style "!f() { git commit -m \"🎨 style: $*\"; }; f"
 git config --global alias.refactor "!f() { git commit -m \"♻️ refactor: $*\"; }; f"
 git config --global alias.test "!f() { git commit -m \"✅ test: $*\"; }; f"
 git config --global alias.chore "!f() { git commit -m \"🧹 chore: $*\"; }; f"
 git config --global alias.afeat "!f() { git commit -am \"✨ feat: $*\"; }; f"
+git config --global alias.afix "!f() { git commit -m \"🐞 fix: $*\"; }; f"
+git config --global alias.adocs "!f() { git commit -m \"📚 docs: $*\"; }; f"
+git config --global alias.astyle "!f() { git commit -m \"🎨 style: $*\"; }; f"
+git config --global alias.arefactor "!f() { git commit -m \"♻️ refactor: $*\"; }; f"
+git config --global alias.atest "!f() { git commit -m \"✅ test: $*\"; }; f"
+git config --global alias.achore "!f() { git commit -m \"🧹 chore: $*\"; }; f"
 ```
 
 ---
