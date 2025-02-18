@@ -1,6 +1,7 @@
 ---
 
 # Git Macros
+
 | Command | Resulting Commit Message |
 |---------|-------------------------|
 | `git feat "commit message"` | ✨ feat: commit message |
