@@ -61,6 +61,30 @@ git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 
 ```
+
+## zsh
+```sh
+# Aliases for `git commit -m` (commit without adding changes)
+git config --global alias.feat '!sh -c "git commit -m \"feat: $*\""'
+git config --global alias.fix '!sh -c "git commit -m \"fix: $*\""'
+git config --global alias.docs '!sh -c "git commit -m \"docs: $*\""'
+git config --global alias.style '!sh -c "git commit -m \"style: $*\""'
+git config --global alias.refactor '!sh -c "git commit -m \"refactor: $*\""'
+git config --global alias.test '!sh -c "git commit -m \"test: $*\""'
+git config --global alias.chore '!sh -c "git commit -m \"chore: $*\""'
+git config --global alias.wip '!sh -c "git commit -m \"wip: $*\""'
+
+# Aliases for `git commit -am` (commit including all tracked changes)
+git config --global alias.afeat '!sh -c "git commit -am \"feat: $*\""'
+git config --global alias.afix '!sh -c "git commit -am \"fix: $*\""'
+git config --global alias.adocs '!sh -c "git commit -am \"docs: $*\""'
+git config --global alias.astyle '!sh -c "git commit -am \"style: $*\""'
+git config --global alias.arefactor '!sh -c "git commit -am \"refactor: $*\""'
+git config --global alias.atest '!sh -c "git commit -am \"test: $*\""'
+git config --global alias.achore '!sh -c "git commit -am \"chore: $*\""'
+git config --global alias.awip '!sh -c "git commit -am \"wip: $*\""'
+```
+
 ## basic commit macro
 ```sh
 #Example
