@@ -67,6 +67,6 @@ git config --global alias.qush "!f() { git commit -am \"$*\" && git push --set-u
 _Require configuring for whatever your "develop" branch is called_
 
 ```sh
-git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git stash pop; }; f"
-git config --global alias.jd "checkout <develop-branch>"
+git config global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git stash pop; }; f"
+git config alias.jd 'checkout <develop-branch>'
 ```
