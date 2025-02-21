@@ -60,3 +60,12 @@ git config --global alias.acom '!zsh -c "git commit -am \"$1\""'
 ```sh
 git config --global alias.qush '!zsh -c "git commit -am \"$1\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"'
 ```
+
+## 💰🌿💥, jump to dev
+
+_Require configuring for whatever your "develop" branch is called_
+
+```sh
+git config --global alias.bfd "!f() { git stash push -m 'bfd stash' && git switch <develop-branch> && git switch -c \"$1\" && git stash pop; }; f"
+git config alias.jd 'checkout <develop-branch>'
+```
