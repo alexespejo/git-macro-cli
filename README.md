@@ -12,3 +12,7 @@
 | `git test "commit message"`     | ✅ test: commit message     |
 | `git chore "commit message"`    | 🧹 chore: commit message    |
 | `git wip "commit message"`      | 🚧 wip: commit message      |
+
+- [For zsh](https://github.com/alexespejo/git-macros/tree/main/zsh)
+
+- [For bash](https://github.com/alexespejo/git-macros/tree/main/bash)
