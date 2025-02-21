@@ -47,3 +47,16 @@ git config --global alias.awip '!sh -c "git commit -am \"wip: $*\""'
 git config --global alias.bout "checkout -b"
 git config --global alias.upush "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
 ```
+
+## Basic Commit
+
+```sh
+git config --global alias.com '!zsh -c "git commit -m \"$1\""'
+git config --global alias.acom '!zsh -c "git commit -am \"$1\""'
+```
+
+## Quick Push (commit and push)
+
+```sh
+git config --global alias.qush '!zsh -c "git commit -am \"$1\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"'
+```
