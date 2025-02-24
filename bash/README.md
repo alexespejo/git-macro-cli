@@ -57,7 +57,7 @@ git config --global alias.acom "!f() { git commit -am \"$*\"; }; f"
 ```
 
 ## Quick Push
-
+_Commit and push_
 ```sh
 git config --global alias.qush "!f() { git commit -am \"$*\" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
 ```
