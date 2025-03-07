@@ -13,6 +13,7 @@
 | `git chore "commit message"`    | 🧹 chore: commit message    |
 | `git wip "commit message"`      | 🚧 wip: commit message      |
 
-# [For zsh](https://github.com/alexespejo/git-macros/tree/main/zsh)
+## Copy and paste into your terminal/command prompt to use ✨
+If you're using [zsh](https://github.com/alexespejo/git-macros/tree/main/zsh)
 
-# [For bash](https://github.com/alexespejo/git-macros/tree/main/bash)
+If you're using [bash](https://github.com/alexespejo/git-macros/tree/main/bash)
