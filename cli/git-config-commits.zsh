@@ -7,7 +7,6 @@ show_loading_animation() {
   done
   echo
 }
-
 if [ "$1" = "y" ]; then
   show_loading_animation
   git config alias.feat '!sh -c "git commit -m \"feat: ✨ $*\""'
