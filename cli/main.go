@@ -63,7 +63,7 @@ func mnuConfigCommits() bool {
 		fmt.Println("")
 		if param == YES {
 			printDelay(colorize("git feat     -> ", color.BOLD, color.GREEN) + "feat: ✨")
-			printDelay(colorize("git fix      -> ", color.BOLD, color.GREEN) + "fix: 🐛")
+			printDelay(colorize("git fix      -> ", color.BOLD, color.GREEN) + "fix: 🪲")
 			printDelay(colorize("git docs     -> ", color.BOLD, color.GREEN) + "docs: 📚")
 			printDelay(colorize("git style    -> ", color.BOLD, color.GREEN) + "style: 🎨")
 			printDelay(colorize("git refactor -> ", color.BOLD, color.GREEN) + "refactor: ♻️")
@@ -108,6 +108,7 @@ func surveyPrompt(options []string, message string, defaultVal string) string {
 }
 
 func main() {
+
 	printlnStyled("===================================", color.CYAN, color.BOLD)
 	printlnStyled(" 	ABE's Git Macro CLI ", color.CYAN, color.BOLD)
 	printlnStyled("===================================", color.CYAN, color.BOLD)
