@@ -10,6 +10,7 @@ const (
 	MAGENTA   = "\033[35m"
 	CYAN      = "\033[36m"
 	WHITE     = "\033[37m"
+	ORANGE    = "\033[38;5;208m" // ANSI escape code for orange
 	BOLD      = "\033[1m"
 	UNDERLINE = "\033[4m"
 	REVERSED  = "\033[7m"
