@@ -47,49 +47,6 @@ func printDelay(text string) {
 	fmt.Println(text)
 }
 
-func mnuConfigCommits() bool {
-	param := promptYesNo(func() {
-		printStyled("Do you want to use emojis in your commit messages? ", color.MAGENTA, color.BOLD)
-		printStyled("(y/n)", color.MAGENTA)
-	})
-
-	printlnStyled("You got it! 😎", color.MAGENTA)
-	cmd := exec.Command("./scripts/git-config-commits.zsh", param)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Run()
-
-	status := cmd.ProcessState.ExitCode()
-	fmt.Println(status)
-	if status == 1 {
-		fmt.Println("")
-		if param == YES {
-			printDelay(colorize("git feat     -> ", color.BOLD, color.GREEN) + "feat: ✨")
-			printDelay(colorize("git fix      -> ", color.BOLD, color.GREEN) + "fix: 🪲")
-			printDelay(colorize("git docs     -> ", color.BOLD, color.GREEN) + "docs: 📚")
-			printDelay(colorize("git style    -> ", color.BOLD, color.GREEN) + "style: 🎨")
-			printDelay(colorize("git refactor -> ", color.BOLD, color.GREEN) + "refactor: ♻️")
-			printDelay(colorize("git test     -> ", color.BOLD, color.GREEN) + "test: ✅")
-			printDelay(colorize("git chore    -> ", color.BOLD, color.GREEN) + "chore: 🔧")
-			printDelay(colorize("git wip      -> ", color.BOLD, color.GREEN) + "wip: 🚧")
-		} else if param == NO {
-			printDelay(colorize("git feat     -> ", color.BOLD, color.GREEN) + "feat")
-			printDelay(colorize("git fix      -> ", color.BOLD, color.GREEN) + "fix")
-			printDelay(colorize("git docs     -> ", color.BOLD, color.GREEN) + "docs")
-			printDelay(colorize("git style    -> ", color.BOLD, color.GREEN) + "style")
-			printDelay(colorize("git refactor -> ", color.BOLD, color.GREEN) + "refactor")
-			printDelay(colorize("git test     -> ", color.BOLD, color.GREEN) + "test")
-			printDelay(colorize("git chore    -> ", color.BOLD, color.GREEN) + "chore")
-			printDelay(colorize("git wip      -> ", color.BOLD, color.GREEN) + "wip")
-		}
-		printlnStyled("Your commit macros have been created!", color.MAGENTA)
-		return true
-	}
-
-	printlnStyled("Do you want to try again?", color.MAGENTA)
-	return false
-}
-
 func surveyPrompt(options []string, message string, defaultVal string) string {
 	fmt.Println("")
 	var selectedTemplate string
@@ -109,16 +66,69 @@ func surveyPrompt(options []string, message string, defaultVal string) string {
 	return selectedTemplate
 }
 
+func mnuConfigCommits() bool {
+	option1 := colorize("- Yes Emoji 👍", color.MAGENTA)
+	option2 := colorize("- No Emoji 👎", color.MAGENTA)
+	option3 := colorize("- Back")
+	req := surveyPrompt([]string{option1, option2, option3}, "Do you want to use emojis in your commits?", option1)
+
+	param := ""
+	switch req {
+	case option1:
+		param = YES
+	case option2:
+		param = NO
+	default:
+		return false
+	}
+	printlnStyled("You got it! 😎", color.MAGENTA)
+	cmd := exec.Command("./scripts/git-config-commits.zsh", param)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Run()
+
+	status := cmd.ProcessState.ExitCode()
+	fmt.Println(status)
+	if status == 1 {
+		fmt.Println("")
+		if param == YES {
+			printDelay(colorize("git feat     → ", color.BOLD, color.GREEN) + "feat: ✨")
+			printDelay(colorize("git fix      → ", color.BOLD, color.GREEN) + "fix: 🪲")
+			printDelay(colorize("git docs     → ", color.BOLD, color.GREEN) + "docs: 📚")
+			printDelay(colorize("git style    → ", color.BOLD, color.GREEN) + "style: 🎨")
+			printDelay(colorize("git refactor → ", color.BOLD, color.GREEN) + "refactor: ♻️")
+			printDelay(colorize("git test     → ", color.BOLD, color.GREEN) + "test: ✅")
+			printDelay(colorize("git chore    → ", color.BOLD, color.GREEN) + "chore: 🔧")
+			printDelay(colorize("git wip      → ", color.BOLD, color.GREEN) + "wip: 🚧")
+		} else if param == NO {
+			printDelay(colorize("git feat     → ", color.BOLD, color.GREEN) + "feat")
+			printDelay(colorize("git fix      → ", color.BOLD, color.GREEN) + "fix")
+			printDelay(colorize("git docs     → ", color.BOLD, color.GREEN) + "docs")
+			printDelay(colorize("git style    → ", color.BOLD, color.GREEN) + "style")
+			printDelay(colorize("git refactor → ", color.BOLD, color.GREEN) + "refactor")
+			printDelay(colorize("git test     → ", color.BOLD, color.GREEN) + "test")
+			printDelay(colorize("git chore    → ", color.BOLD, color.GREEN) + "chore")
+			printDelay(colorize("git wip      → ", color.BOLD, color.GREEN) + "wip")
+		}
+		printlnStyled("Your commit macros have been created!", color.MAGENTA)
+		return true
+	}
+
+	printlnStyled("Do you want to try again?", color.MAGENTA)
+	return false
+}
+
 func main() {
 	printlnStyled("===================================", color.CYAN, color.BOLD)
-	printlnStyled(" 	ABE's Git Macro CLI ", color.CYAN, color.BOLD)
+	printlnStyled(" 	ABE Git Macro CLI ", color.CYAN, color.BOLD)
 	printlnStyled("===================================", color.CYAN, color.BOLD)
-	option1 := colorize("Commits ✨", color.UNDERLINE, color.ORANGE)
-	option2 := colorize("Branching 🌳", color.UNDERLINE, color.GREEN)
-	option3 := colorize("Other ⚙️", color.UNDERLINE, color.BLUE)
-	option4 := colorize("Add 🔎", color.UNDERLINE, color.YELLOW)
-	optionCancel := colorize("Cancel️", color.UNDERLINE)
+	option1 := colorize("- ☄️ Commits", color.ORANGE)
+	option2 := colorize("- 🌱 Branching", color.GREEN)
+	option3 := colorize("- 💫 Special", color.YELLOW)
+	option4 := colorize("- ⚙️ Other", color.BLUE)
+	optionCancel := colorize("Close", color.UNDERLINE)
 	defaultVal := option1
+
 	for {
 		options := []string{option1, option2, option3, option4, optionCancel}
 		res := surveyPrompt(options, "Choose what to configure:", defaultVal)
@@ -130,7 +140,6 @@ func main() {
 			return
 		}
 
-		fmt.Printf("You selected the %s template.\n", res)
 		switch res {
 		case option1:
 			mnuConfigCommits()
