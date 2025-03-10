@@ -46,6 +46,7 @@ func printDelay(text string) {
 	time.Sleep(50 * time.Millisecond)
 	fmt.Println(text)
 }
+
 func mnuConfigCommits() bool {
 	param := promptYesNo(func() {
 		printStyled("Do you want to use emojis in your commit messages? ", color.MAGENTA, color.BOLD)
@@ -53,12 +54,13 @@ func mnuConfigCommits() bool {
 	})
 
 	printlnStyled("You got it! 😎", color.MAGENTA)
-	cmd := exec.Command("/bin/zsh", "git.config.commits.zsh", param)
+	cmd := exec.Command("./scripts/git-config-commits.zsh", param)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 
 	status := cmd.ProcessState.ExitCode()
+	fmt.Println(status)
 	if status == 1 {
 		fmt.Println("")
 		if param == YES {
@@ -108,23 +110,23 @@ func surveyPrompt(options []string, message string, defaultVal string) string {
 }
 
 func main() {
-
 	printlnStyled("===================================", color.CYAN, color.BOLD)
 	printlnStyled(" 	ABE's Git Macro CLI ", color.CYAN, color.BOLD)
 	printlnStyled("===================================", color.CYAN, color.BOLD)
 	option1 := colorize("Commits ✨", color.UNDERLINE, color.ORANGE)
 	option2 := colorize("Branching 🌳", color.UNDERLINE, color.GREEN)
-	option3 := colorize("Other ⚙️\n", color.UNDERLINE, color.BLUE)
-	option4 := colorize("Cancel️", color.UNDERLINE)
+	option3 := colorize("Other ⚙️", color.UNDERLINE, color.BLUE)
+	option4 := colorize("Add 🔎", color.UNDERLINE, color.YELLOW)
+	optionCancel := colorize("Cancel️", color.UNDERLINE)
 	defaultVal := option1
 	for {
-		options := []string{option1, option2, option3, option4}
+		options := []string{option1, option2, option3, option4, optionCancel}
 		res := surveyPrompt(options, "Choose what to configure:", defaultVal)
 
 		if res == ERROR_FLAG {
 			fmt.Println(colorize("Exiting...", color.RED))
 			return
-		} else if res == option4 {
+		} else if res == optionCancel {
 			return
 		}
 
@@ -133,6 +135,6 @@ func main() {
 		case option1:
 			mnuConfigCommits()
 		}
-		defaultVal = option4
+		defaultVal = optionCancel
 	}
 }

@@ -7,6 +7,7 @@ show_loading_animation() {
   done
   echo
 }
+
 if [ "$1" = "y" ]; then
   show_loading_animation
   git config alias.feat '!sh -c "git commit -m \"feat: ✨ $*\""'
@@ -18,7 +19,7 @@ if [ "$1" = "y" ]; then
   git config alias.chore '!sh -c "git commit -m \"chore: 🔧 $*\""'
   git config alias.wip '!sh -c "git commit -m \"wip: 🚧 $*\""'
   git config alias.afeat '!sh -c "git commit -am \"feat: ✨ $*\""'
-  git config alias.afix '!sh -c "git commit -am \"fix: 🐛 $*\""'
+  git config alias.afix '!sh -c "git commit -am \"fix: 🪲 $*\""'
   git config alias.adocs '!sh -c "git commit -am \"docs: 📚 $*\""'
   git config alias.astyle '!sh -c "git commit -am \"style: 🎨 $*\""'
   git config alias.arefactor '!sh -c "git commit -am \"refactor: ♻️ $*\""'
