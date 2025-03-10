@@ -13,7 +13,7 @@ echo -e "\033[1;32mLet's setup to Git Macros!\033[0m"
 read "use_emojis?Use icons in your commit messages? 📚 (y/n): "
 if [[ "$use_emojis" == "y" ]]; then
   echo "Good to go! ⚙️"
-
+  asd
   show_loading_animation
   git config alias.feat '!sh -c "git commit -m \"feat: ✨ $*\""'
   git config alias.fix '!sh -c "git commit -m \"fix: 🐛 $*\""'
