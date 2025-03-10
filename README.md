@@ -1,3 +1,5 @@
+# Custom CLI To Quickly Configure Git Macros for different projects
+
 ---
 
 # Git Macros
