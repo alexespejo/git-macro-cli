@@ -1,5 +1,5 @@
 # A very usefull cli
-
+_Because everyone has gone out of their way to configure their git alisases_
 ---
 
 # Git Macros
